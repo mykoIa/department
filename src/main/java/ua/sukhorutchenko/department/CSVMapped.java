@@ -14,10 +14,11 @@ public class CSVMapped {
     @SuppressWarnings({"rawtypes", "unchecked"})
     public static List<Employee> saveEmployee(MultipartFile file) {
         try {
-            CSVReader reader = new CSVReader(new FileReader("data.csv"), ';', '"', 1);
+            Reader readerFileCSV = new InputStreamReader(file.getInputStream());
+            CSVReader reader = new CSVReader(readerFileCSV, ';', '"', 1);
             CsvToBean csv = new CsvToBean();
             return csv.parse(setColumnMapping(), reader);
-        } catch (FileNotFoundException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
         return null;
