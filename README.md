@@ -5,7 +5,9 @@
   #### Example
   localhost:8080/ <br>
   You can upload the file using the command in the terminal <br>
-  **curl -i -X POST -H "Content-type: multipart/form-data" -F "file=@data.csv" http://locast:8080/upload <br>**
+  **curl -i -X POST -H "Content-type: multipart/form-data" -F "file=@data.csv" http://locast:8080/upload <br><br>**
+  **Sample content <br>**
+  Employee;Department;Salary
   The file is checked for emptiness
 - HTTP endpoint to get all employees. <br>
   **/get-all**
