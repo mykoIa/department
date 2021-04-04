@@ -14,15 +14,16 @@ import java.util.List;
 public class CSVMapped {
     @SuppressWarnings({"rawtypes", "unchecked"})
     public static List<Employee> saveEmployee(MultipartFile file) {
+        List<Employee> listEmployee = new ArrayList<>();
         try {
             Reader readerFileCSV = new InputStreamReader(file.getInputStream());
             CSVReader reader = new CSVReader(readerFileCSV, ';', '"', 1);
             CsvToBean csv = new CsvToBean();
-            return csv.parse(setColumnMapping(), reader);
+            listEmployee = csv.parse(setColumnMapping(), reader);
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return null;
+        return listEmployee;
     }
 
     @SuppressWarnings({"rawtypes", "unchecked"})
